@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.flex-child {
+  width: 50%;
+  background-color: #f1f1f1;
+  height: 90vh;
+}
+
+/* #info {
+  width: 50%;
+} */
+
+#slide {
+  padding-top: 20vh;
+  text-align: justify;
+}
+
+.container {
+  display: flex;
+  background-color: #eee;
+}
+
+.container > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.slide-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 9);
+  font-weight: 400;
+  text-indent: 2rem;
+}
