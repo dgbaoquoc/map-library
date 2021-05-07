@@ -1,16 +1,29 @@
 $(document).ready(function () {
     $("#map").click(() => {
-        $('#chartdiv').show()
+        $('#map-conatiner').show()
         $('#map').addClass("active")
         $('#info').hide()
         $("#chart").removeClass("active")
+        $("#references-container").hide()
+        $("#references").removeClass("active")
     })
 
     $("#chart").click(() => {
-        $('#chartdiv').hide()
+        $('#map-conatiner').hide()
         $("#map").removeClass("active")
         $('#info').show()
         $("#chart").addClass("active")
+        $("#references-container").hide()
+        $("#references").removeClass("active")
+    })
+
+    $("#references").click(() => {
+        $('#references-container').show()
+        $("#references").addClass("active")
+        $('#map-conatiner').hide()
+        $("#map").removeClass("active")
+        $('#info').hide()
+        $("#chart").removeClass("active")
     })
 });
 
@@ -54,17 +67,52 @@ function make_plot(csv_data, filter) {
     let data = [{
         x: country_data.map(d => d.year),
         y: country_data.map(d => d.mortality),
-        mode: 'lines'
+        mode: 'lines',
+        line: {
+            color: '#00003f'
+        }
     },
     //adding our extension as a second trace
     {
         x: extension_x,
         y: extension_y,
-        mode: 'lines'
+        mode: 'lines',
+        line: {
+            color: '#a50000'
+        }
     }]
 
     let layout = {
-        paper_bgcolor: "rgba(0,0,0,0)"
+        title: {
+            text: `<b>${filter}'s Child Mortality Rate</b>`,
+            font: {
+                family: 'Courier New, monospace',
+                size: 24,
+                color: '#fff',
+            }
+        },
+        xaxis: {
+            title: {
+                text: '<b>Year</b>',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 16,
+                    color: '#fff',
+                }
+            },
+        },
+        yaxis: {
+            title: {
+                text: '<b>Rate</b>',
+                font: {
+                    family: 'Courier New, monospace',
+                    size: 16,
+                    color: '#fff',
+                }
+            }
+        },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        font: { color: "#fff", family: "Arial" }
     }
 
     Plotly.newPlot('info', data, layout);
@@ -79,10 +127,11 @@ function map() {
     var chart = am4core.create("chartdiv", am4maps.MapChart);
 
     // Config map
-    var title = chart.titles.create();
-    title.text = " Child Mortality in Sub-Saharan Africa";
-    title.fontSize = 25;
-    title.marginBottom = 30;
+    // var title = chart.titles.create();
+    // let text = ""
+    // title.text = text.toUpperCase();
+    // title.fontSize = 28;
+    // title.fontWeight = 500;
 
     // Set map definition
 
@@ -121,30 +170,28 @@ function map() {
     // Configure series
     var polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name}"; // add chart in hereeeeee
-    polygonTemplate.fill = am4core.color("#5CAB7D");
+    polygonTemplate.fill = am4core.color("#3e5151"); // color map
     polygonTemplate.propertyFields.fill = "color";
     polygonTemplate.events.on("hit", function (ev) {
         var data = ev.target.dataItem.dataContext;
         if (data.name) {
             processCSV(data.name)
-            $('#chartdiv').hide()
+            $('#map-conatiner').hide()
             $("#map").removeClass("active")
             $('#info').show()
             $("#chart").addClass("active")
         }
-        // var info = document.getElementById("info");
-        // info.innerHTML = "<h3>" + data.name + " (" + data.id + ")</h3>";
-        // if (data.description) {
-        //     info.innerHTML += data.description;
-        // }
-        // else {
-        //     info.innerHTML += "<i>No description provided.</i>"
-        // }
     });
+
+    // Set up tooltips
+    // polygonSeries.calculateVisualCenter = true;
+    // polygonTemplate.tooltipPosition = "fixed";
+    // polygonSeries.tooltip.label.interactionsEnabled = true;
+    // polygonSeries.tooltip.keepTargetHover = true;
 
     // Create hover state and set alternative fill color
     var hs = polygonTemplate.states.create("hover");
-    hs.properties.fill = am4core.color("#5A9367");
+    hs.properties.fill = am4core.color("#feddc4"); //color map hover
 
     // Remove Antarctica
     polygonSeries.exclude = ["AQ"];

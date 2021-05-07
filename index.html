@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a id="map" class="nav-link active" href="#">Map</a>
@@ -38,66 +38,96 @@
             </li>
         </ul>
     </div>
-    <div class="container">
-        <div style="display: none;" class="flex-child" id="info"></div>
-        <div style="display: none;" class="flex-child" id="references-conatiner">
-        </div>
-        <div class="flex-child" id="chartdiv"></div>
-        <div id="slide" class="carousel slide flex-child" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <p class="slide-text">
-                        Half of the 10 million children under the age of five who really die every year in the world
-                        (1000 infant deaths per hour) actually are essentially thought to basically be in basically
-                        Sub-Saharan Africa (SSA) in a subtle way. 1 Any of these children may really have basically
-                        survived if they really had specifically had access to kind of basic care as well as easy,
-                        low-cost, and quick-to-implement therapies, pretty further showing how 1 Any of these children
-                        may basically have survived if they literally had generally had access to actually basic care as
-                        well as easy, low-cost, and quick-to-implement therapies in a for all intents and purposes major
-                        way.
+    <div class="container-fluid">
+        <div class="row">
+            <div style="display: none;" class="flex-child col-md-6" id="info"></div>
+            <div style="display: none;" class="flex-child col-md-6" id="references-container">
+                <div style="width: 80%; margin:auto; padding-top: 20vh;">
+                    <p style="font-style:italic" class="slide-text">
+                        1. WHO. World Health Statistics 2008. Geneva: May, 2008. [Accessed on 12/12/2010]. Available
+                        from:
+                        <a href="http://www.who.int/whosis/whostat/IN_WHS08_Full.pdf"
+                            target="_blank">http://www.who.int/whosis/whostat/IN_WHS08_Full.pdf</a>
                     </p>
-                </div>
-                <div class="carousel-item">
-                    <p class="slide-text">
-                        The causes of basically high child mortality rate mostly are neonatal causes (26%), child
-                        pneumonia (21%), malaria (18%), diarrhoea (16%), HIV/AIDS (6%), measles (5%) and accidents (2%)
-                        in a sort of big way. (1) <br>
-
-                        Exotic diseases particularly do not decimate children in developing countries; however,
-                        particularly common and recurrent problems basically do in a kind of major way. About 1.5
-                        million children for the most part die each year as a result of ingesting contaminated water, a
-                        lack of access to water for definitely personal hygiene, and a lack of proper sanitation in a
-                        basically big way (2). This suggests that if very such factors increase, the rate of infant
-                        mortality will decrease, or so they essentially thought.
-
-                    </p>
-                </div>
-                <div class="carousel-item">
-                    <p class="slide-text">
-                        We essentially are losing our "family members" if we for all intents and purposes do not really
-                        start from the beginning, or so they for all intents and purposes thought. According to the
-                        table, it would particularly take almost two decades for the majority of the world to for all
-                        intents and purposes achieve zero infant mortality, really contrary to popular belief. As a
-                        result, we need to speed up the operation, actually contrary to popular belief. Several ways
-                        that people from all around the world can make the magic:<br>
-
-                        - Donate to charity<br>
-                        - Educate surrounding people how important the situation is.<br>
-                        - Volunteer to go and develop the country<br>
-
+                    <p style="font-style:italic" class="slide-text">
+                        2. Black RE, Morris SS, Bryce J. Where and why are 10 million children dying every year?
+                        [[Accessed:
+                        11/12/2010]];Lancet. 2003 361:2226–34. Available from: <a
+                            href="http://www.afro.who.int/cah/documents/training/lancet/child_survival_1.pdf"
+                            target="_blank">http://www.afro.who.int/cah/documents/training/lancet/child_survival_1.pdf</a>
 
                     </p>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#slide" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="flex-child col-md-6" id="map-conatiner">
+                <h2 style="color: #fff; text-transform: uppercase; text-align: center; margin-top: 20px;">Please notice
+                    us, Sub-Saharan Africa!</h1>
+                    <div style="height: 500px; width: 100%; margin-top: 2rem;" id="chartdiv"></div>
+            </div>
+            <div id="slide" class="carousel slide flex-child col-md-6" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#slide" data-slide-to="0" class="active"></li>
+                    <li data-target="#slide" data-slide-to="1"></li>
+                    <li data-target="#slide" data-slide-to="2"></li>
+                    <li data-target="#slide" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner" style="width: 80%; margin: auto">
+                    <div class="carousel-item active">
+                        <p class="slide-text">
+                            Half of the 10 million children under the age of five who really die every year in the world
+                            (1000 infant deaths per hour) actually are essentially thought to basically be in basically
+                            Sub-Saharan Africa (SSA) in a subtle way. 1 Any of these children may really have basically
+                            survived if they really had specifically had access to kind of basic care as well as easy,
+                            low-cost, and quick-to-implement therapies, pretty further showing how 1 Any of these
+                            children
+                            may basically have survived if they literally had generally had access to actually basic
+                            care as
+                            well as easy, low-cost, and quick-to-implement therapies in a for all intents and purposes
+                            major
+                            way.
+                        </p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="slide-text">
+                            The causes of basically high child mortality rate mostly are neonatal causes (26%), child
+                            pneumonia (21%), malaria (18%), diarrhoea (16%), HIV/AIDS (6%), measles (5%) and accidents
+                            (2%)
+                            in a sort of big way. (1)
+                        </p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="slide-text">
+                            Exotic diseases particularly do not decimate children in developing countries; however,
+                            particularly common and recurrent problems basically do in a kind of major way. About 1.5
+                            million children for the most part die each year as a result of ingesting contaminated
+                            water, a
+                            lack of access to water for definitely personal hygiene, and a lack of proper sanitation in
+                            a
+                            basically big way (2). This suggests that if very such factors increase, the rate of infant
+                            mortality will decrease, or so they essentially thought.
+                        </p>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="slide-text">
+                            We essentially are losing our "family members" if we for all intents and purposes do not
+                            really
+                            start from the beginning, or so they for all intents and purposes thought. According to the
+                            table, it would particularly take almost two decades for the majority of the world to for
+                            all
+                            intents and purposes achieve zero infant mortality, really contrary to popular belief. As a
+                            result, we need to speed up the operation, actually contrary to popular belief. Several ways
+                            that people from all around the world can make the magic:<br>
+
+                            - Donate to charity<br>
+                            - Educate surrounding people how important the situation is.<br>
+                            - Volunteer to go and develop the country<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     </div>
 
 
